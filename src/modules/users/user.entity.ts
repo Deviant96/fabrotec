@@ -6,14 +6,14 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   username: string;
 
   @Column()
   password: string;
 
-  @Column({ default: false })
-  isAdmin: boolean;
+  @Column()
+  role: string;
 
   @BeforeInsert()
   async hashPassword() {
